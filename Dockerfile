@@ -9,4 +9,5 @@ RUN apt -qq update && \
 
 COPY . .
 RUN pip3 install -r requirements.txt
-CMD ["bash", "run.sh"]
+
+CMD gunicorn app:app & python3 bot.py
